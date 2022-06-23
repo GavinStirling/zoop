@@ -69,12 +69,12 @@ public class Animal {
 
     public void addHappiness(int additionalHappiness) {
         int newHappiness = this.happiness + additionalHappiness;
-        if (newHappiness <=100) {
+        if (newHappiness <= 100) {
             setHappiness(newHappiness);
-            System.out.println(this.name + " now has a happiness level of: " + this.happiness);
+            System.out.println(this.name + " now has a happiness level of: " + happiness);
         } else {
             setHappiness(100);
-            System.out.println(this.name + " now has a maximum happiness level of: " + this.happiness);
+            System.out.println(this.name + " now has a maximum happiness level of: " + happiness);
         }
     }
 
@@ -84,28 +84,28 @@ public class Animal {
         } else {
             int additionalHappiness = (int) (Math.random() * 5 + 1);
             addHappiness(additionalHappiness);
-            System.out.println("You petted " + this.name + " and their happiness increased by " + additionalHappiness + " to " + this.happiness);
+            System.out.println("You petted " + name + " and their happiness increased by " + additionalHappiness + " to " + happiness);
         }
     }
 
     public void giveTreat() {
         int additionalHappiness = (int) (Math.random() * 15 + 1);
         addHappiness(additionalHappiness);
-        System.out.println("You gave " + this.name + " a treat and their happiness increased by " + additionalHappiness + " to " + this.happiness);
+        System.out.println("You gave " + name + " a treat and their happiness increased by " + additionalHappiness + " to " + happiness);
     }
 
     public String getAnimalInfo() {
         String tameString = "They are not tame";
-        if (this.isTame) {
+        if (isTame) {
             tameString = "They are tame";
         }
 
-        return String.format("%s is a %s and their ID is %s. %s and have a happiness level of %s out of 100.", this.name, this.type, this.id, tameString, this.happiness);
+        return String.format("%s is a %s and their ID is %s. %s and have a happiness level of %s out of 100.", name, type, id, tameString, happiness);
     }
 
     public void isTamed() {
-        this.isTame = this.happiness > 50;
-        if (this.isTame) {
+        if (this.happiness > 50 && !isTame) {
+            setIsTame(true);
             System.out.println(this.name + " has now been tamed!");
         }
     }
