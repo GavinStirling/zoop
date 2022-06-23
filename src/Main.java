@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * CONNECTING OUR CLASSES TOGETHER
  * - CREATE A USER FROM USER INPUT
@@ -13,23 +16,42 @@ public class Main {
 
 //        System.out.println(gavin.getId());
 //        System.out.println(gavin.getIsTame());
-        gavin.setIsTame(true);
+//        gavin.setIsTame(true);
 //        System.out.println(gavin.getIsTame());
 
         Animal rob = new Animal("Rob", "Orca", "animal-2");
 
+        List animals = new ArrayList<String>();
+
+        for (int j = 0; j < 20; j++) {
+            Animal temp = new Animal("Animal " + j + 1, "Type " + j, "Animal" + j);
+            animals.add(temp.getAnimalInfo());
+        }
+
+        for (Object a : animals) {
+            System.out.println(a);
+        }
+
+
+
 //        System.out.println(rob.getId());
 //        System.out.println(rob.getHappiness());
-        rob.giveTreat();
-        rob.giveTreat();
-        rob.giveTreat();
-        rob.giveTreat();
-        rob.giveTreat();
+//        rob.giveTreat();
+//        rob.giveTreat();
+//        rob.giveTreat();
+//        rob.giveTreat();
+//        rob.giveTreat();
 //        System.out.println(rob.getHappiness());
 //        rob.setHappiness(3000);
 //        System.out.println(rob.getHappiness());
 
-        System.out.println(rob.getAnimalInfo());
+//        System.out.println(rob.getAnimalInfo());
+
+        Commands home = new Commands("Home", new String[]{"Create User", "Create Animal", "Quit"});
+//        home.printMessage("Hello");
+//        home.printGreeting();
+//        home.printCommands();
+//        home.getStringInput();
 
 
     }
