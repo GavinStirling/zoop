@@ -22,16 +22,18 @@ public class Animal {
     private String id;
     private boolean isTame;
     private int happiness;
+    private final String sound;
 
 
     // Constructor
     // - Takes values and assigns them to fields
     // - When initialised
-    public Animal (String name, String type, String id ) {
+    public Animal (String name, String type, String id, String sound) {
         // this -> refers to the object
         this.name = name;
         this.type = type;
         this.id = id;
+        this.sound = sound;
 
         //Sets default value
         this.happiness = (int) (Math.random()*100 +1);
@@ -50,8 +52,16 @@ public class Animal {
         return isTame;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getHappiness() {
         return happiness;
+    }
+
+    public String getSound() {
+        return sound;
     }
 
     // Setter -> Method
@@ -71,7 +81,7 @@ public class Animal {
         int newHappiness = this.happiness + additionalHappiness;
         if (newHappiness <= 100) {
             setHappiness(newHappiness);
-            System.out.println(this.name + " now has a happiness level of: " + happiness);
+//            System.out.println(this.name + " now has a happiness level of: " + happiness);
         } else {
             setHappiness(100);
             System.out.println(this.name + " now has a maximum happiness level of: " + happiness);
@@ -83,32 +93,30 @@ public class Animal {
             System.out.println(this.name + " can only be petted once they are tamed. Try some treats first!");
         } else {
             int additionalHappiness = (int) (Math.random() * 5 + 1);
-            addHappiness(additionalHappiness);
             System.out.println("You petted " + name + " and their happiness increased by " + additionalHappiness + " to " + happiness);
+            addHappiness(additionalHappiness);
+            isTamed();
         }
     }
 
-    public void giveTreat() {
+    public void receiveTreat() {
         int additionalHappiness = (int) (Math.random() * 15 + 1);
-        addHappiness(additionalHappiness);
         System.out.println("You gave " + name + " a treat and their happiness increased by " + additionalHappiness + " to " + happiness);
+        addHappiness(additionalHappiness);
+        isTamed();
     }
 
-    public String getAnimalInfo() {
-        String tameString = "They are not tame";
-        if (isTame) {
-            tameString = "They are tame";
-        }
-
-        return String.format("%s is a %s and their ID is %s. %s and have a happiness level of %s out of 100.", name, type, id, tameString, happiness);
+    // Annotation explicitly stating we want to override the toSting method from the Object class which we extend from/inherited.
+    // This allows us to implement our own logic for the toString function.
+    @Override
+    public String toString() {
+        return String.format("\nName: %s \nType: %s \nID: %s \nTame: %s \nHappiness: %s", name, type, id, isTame, happiness);
     }
 
     public void isTamed() {
-        if (this.happiness > 50 && !isTame) {
+        if (this.happiness >= 50 && !isTame) {
             setIsTame(true);
             System.out.println(this.name + " has now been tamed!");
         }
     }
-
-
 }
