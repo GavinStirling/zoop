@@ -10,49 +10,53 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // Initialise the class
-        // Pass in the correct parameters
-        Animal gavin = new Animal("Gavin", "Dog", "animal-1");
+        // Getting information to create a user
+        Commands currentCommands = new Commands("Create user", new String[]{});
+        currentCommands.printGreeting();
+        currentCommands.printMessage("Enter Username:");
+        String username = currentCommands.getStringInput();
 
-//        System.out.println(gavin.getId());
-//        System.out.println(gavin.getIsTame());
-//        gavin.setIsTame(true);
-//        System.out.println(gavin.getIsTame());
+        // Using the retrieved information to create a user
+        User user = new User(username);
+        currentCommands.printMessage(user.getInfo());
 
-        Animal rob = new Animal("Rob", "Orca", "animal-2");
+        // Setting up the application to run using basic commands
+        String nextCommands = "home";
+        boolean isActive = true;
 
-        List animals = new ArrayList<String>();
+        while (isActive) {
+            switch(nextCommands) {
+                case "home" :
+                    currentCommands = new Commands("Home", new String[]{"Visit and Animal", "Manage the Animals", "Quit"});
+                    currentCommands.printGreeting();
+                    currentCommands.printCommands();
+                    int userInput = currentCommands.getIntegerInput();
 
-        for (int j = 0; j < 20; j++) {
-            Animal temp = new Animal("Animal " + j + 1, "Type " + j, "Animal" + j);
-            animals.add(temp.getAnimalInfo());
+                    if (userInput == 1) {
+                        nextCommands = "visit";
+                    } else if (userInput == 2) {
+                        nextCommands = "manage";
+                    } else if (userInput == 3) {
+                        nextCommands = "";
+                    } else {
+                        nextCommands = "";
+                    }
+                    break;
+
+                case "visit" :
+                    currentCommands.printMessage("VISIT");
+                    nextCommands = "home";
+                    break;
+
+                case "manage" :
+                    currentCommands.printMessage("MANAGE");
+                    nextCommands = "home";
+                    break;
+
+                default:
+                    isActive = false;
+            }
         }
-
-        for (Object a : animals) {
-            System.out.println(a);
-        }
-
-
-
-//        System.out.println(rob.getId());
-//        System.out.println(rob.getHappiness());
-//        rob.giveTreat();
-//        rob.giveTreat();
-//        rob.giveTreat();
-//        rob.giveTreat();
-//        rob.giveTreat();
-//        System.out.println(rob.getHappiness());
-//        rob.setHappiness(3000);
-//        System.out.println(rob.getHappiness());
-
-//        System.out.println(rob.getAnimalInfo());
-
-        Commands home = new Commands("Home", new String[]{"Create User", "Create Animal", "Quit"});
-//        home.printMessage("Hello");
-//        home.printGreeting();
-//        home.printCommands();
-//        home.getStringInput();
-
 
     }
 }

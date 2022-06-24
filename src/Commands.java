@@ -27,7 +27,9 @@ public class Commands {
     }
 
     public void printMessage(String message) {
+        System.out.println("-----");
         System.out.println(message);
+        System.out.println("-----");
     }
 
     public void printGreeting() {
@@ -70,19 +72,17 @@ public class Commands {
      *   - TRY TO GET THE INPUT AGAIN.
      */
     public String getStringInput() {
-        System.out.println("Enter text");
-        String input = "";
-        boolean correctInput = false;
-        while (!correctInput) {
-            String userInput = scanner.nextLine();
-            if (userInput.equals("")) {
-                System.out.println("Unable to understand input, try again");
-            } else {
-                correctInput = true;
-                input = userInput;
-            }
+        System.out.println("Enter text below: ");
+
+        String userInput = scanner.nextLine();
+        if (userInput.equals("")) {
+            System.out.println("Unable to understand input, try again");
+            return getStringInput();
+        } else {
+            return userInput;
         }
-        return input;
+
+
     }
 
 }
