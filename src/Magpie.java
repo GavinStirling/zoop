@@ -9,9 +9,10 @@
 public class Magpie extends Animal {
     private boolean isFlying;
 
-    public Magpie(String name, String id) {
-        //Super -> Pass the information that the class needs
-        super(name, "magpie", id, "Caaawwww");
+    public Magpie(String name) {
+        // Super -> Pass the information that the class needs
+        // Calling the overloaded constructor method
+        super(name, "magpie","Caaawwww");
         this.isFlying = false;
         }
 

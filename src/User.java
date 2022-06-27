@@ -112,4 +112,9 @@ public class User {
             setTreatCount(treatCount + 1);
         }
     }
+
+    public void giveTreat () {
+        setTreatCount(treatCount-1);
+    }
+
 }

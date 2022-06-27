@@ -24,6 +24,17 @@ public class Animal {
     private int happiness;
     private final String sound;
 
+    // Static fields & methods -> Is accessible without initialising the class
+    private static int animalCount = 0;
+
+    public static int getAnimalCount() {
+        return animalCount;
+    }
+
+    public static void setAnimalCount(int animalCount) {
+        Animal.animalCount = animalCount;
+    }
+
 
     // Constructor
     // - Takes values and assigns them to fields
@@ -38,6 +49,15 @@ public class Animal {
         //Sets default value
         this.happiness = (int) (Math.random()*100 +1);
         this.isTame = this.happiness > 50;
+
+        // Increasing static field when a new animal is created
+        setAnimalCount(animalCount + 1);
+    }
+
+    // Creating an overloaded constructor method which doesn't require an id string
+    public Animal (String name, String type, String sound) {
+        // this() calls the original constructor method
+        this(name, type,"-" + animalCount, sound);
     }
 
     // Getter -> Method

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CONNECTING OUR CLASSES TOGETHER
@@ -10,18 +11,28 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        Zoo animals = new Zoo(new ArrayList());
+//        Zoo animals = new Zoo(new ArrayList());
 
-        Animal magpie = new Magpie("Maggy", "m-1");
-        Magpie otherMagpie = new Magpie("Maggy II", "m-2");
+        List<Animal> zoo = new ArrayList<>();
 
-        System.out.println(magpie.toString());
-        System.out.println(otherMagpie.getIsFlying());
-        magpie.receiveTreat();
-        magpie.receiveTreat();
-        System.out.println(magpie.toString());
 
-        Lion lion = new Lion("Lucas", "l-1");
+        zoo.add(new Magpie("Mags"));
+        zoo.add(new Magpie("Mags"));
+        zoo.add(new Magpie("Mags"));
+        zoo.add(new Magpie("Mags"));
+        System.out.println(zoo);
+
+
+//        Animal magpie = new Magpie("Maggy", "m-1");
+//        Magpie otherMagpie = new Magpie("Maggy II", "m-2");
+
+//        System.out.println(magpie.toString());
+//        System.out.println(otherMagpie.getIsFlying());
+//        magpie.receiveTreat();
+//        magpie.receiveTreat();
+//        System.out.println(magpie.toString());
+
+//        Lion lion = new Lion("Lucas", "l-1");
 //        System.out.println(lion.toString());
 //        lion.giveTreat();
 //        lion.petAnimal();
@@ -29,17 +40,17 @@ public class Main {
 
         // Getting information to create a user
         Commands currentCommands = new Commands("Create user", new String[]{});
-//        currentCommands.printGreeting();
-//        currentCommands.printMessage("Enter Username:");
-        String username = "currentCommands.getStringInput();";
+        currentCommands.printGreeting();
+        currentCommands.printMessage("Enter Username:");
+        String username = currentCommands.getStringInput();
 
         // Using the retrieved information to create a user
         User user = new User(username);
-//        currentCommands.printMessage(user.getInfo());
+        currentCommands.printMessage(user.getInfo());
 
         // Setting up the application to run using basic commands
         String nextCommands = "home";
-        boolean isActive = false;
+        boolean isActive = true;
 
         while (isActive) {
             switch(nextCommands) {
@@ -61,8 +72,24 @@ public class Main {
                     break;
 
                 case "visit" :
-                    currentCommands.printMessage("VISIT");
-                    nextCommands = "home";
+                    currentCommands = new Commands("Visit", new String[]{"Pet animal", "Give treat", "Go back"});
+                    Animal currentAnimal = zoo.get(0);
+
+                    currentCommands.printGreeting();
+                    currentCommands.printMessage(currentAnimal.toString());
+                    currentCommands.printCommands();
+
+                    userInput = currentCommands.getIntegerInput();
+
+                    if (userInput == 1) {
+                        currentAnimal.petAnimal();
+                        user.incrementScore();
+                    } else if (userInput == 2) {
+
+                    } else {
+                        nextCommands = "home";
+                    }
+
                     break;
 
                 case "manage" :

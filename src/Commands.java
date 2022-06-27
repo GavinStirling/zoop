@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -36,9 +37,39 @@ public class Commands {
         System.out.println("Welcome to the " + name + " commands.");
     }
 
+    // Original method before challenge
+//    public void printCommands() {
+//        for (int i = 0; i < commands.length; i++) {
+//            System.out.println((i+1) + ": " + commands[i]);
+//        }
+//    }
+
+    // OVERLOAD printCommands
+    // ONE METHOD SHOULD TAKE AN STRING[] AS A PARAMETER
+    // - IT SHOULD LOOP THROUGH & KEEP THE ORIGINAL PRINT FUNCTIONALITY
+
+    public void printCommands(String[] stringArr) {
+        for (int i = 0; i < stringArr.length; i++) {
+            System.out.println((i+1) + ": " + stringArr[i]);
+        }
+    }
+
+    // ONE METHOD SHOULD HAVE NO PARAMETERS
+    // - IT SHOULD PASS IN THE commands FIELD
+
     public void printCommands() {
-        for (int i = 0; i < commands.length; i++) {
-            System.out.println((i+1) + ": " + commands[i]);
+        printCommands(commands);
+    }
+
+    // EXTENSION
+    // ADD ANOTHER printCommands THAT TAKES ArrayList<String>
+    // - IT SHOULD LOOP THROUGH & KEEP THE ORIGINAL PRINT FUNCTIONALITY
+
+    public void printCommands(ArrayList<String> stringList) {
+        int index = 1;
+        for (String string : stringList) {
+            System.out.println((index) + ": " + string);
+            index += 1;
         }
     }
 
@@ -46,19 +77,25 @@ public class Commands {
     // If it is then the input integer will be returned
     // If it is not then we can print an error message and try again
 
-    public int getIntegerInput() {
+    public int getIntegerInput(int rangeLimit) {
         boolean correctInput = false;
         int input = 0;
         while (!correctInput) {
+            printMessage("Enter a number between 1 and " + rangeLimit);
         int userInput = scanner.nextInt();
-            if (userInput > 0 && userInput <= commands.length) {
+            if (userInput > 0 && userInput <= rangeLimit) {
                 correctInput = true;
                 input = userInput;
             } else {
-                printMessage("Invalid input. Please input a number between 1 and " + commands.length);
+                printMessage("Invalid input. Please input a number between 1 and " + rangeLimit);
             }
         }
+        scanner.nextLine();
         return input;
+    }
+
+    public int getIntegerInput() {
+        return getIntegerInput(commands.length);
     }
 
     /*
@@ -81,8 +118,6 @@ public class Commands {
         } else {
             return userInput;
         }
-
-
     }
 
 }
