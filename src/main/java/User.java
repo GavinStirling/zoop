@@ -93,7 +93,7 @@ public class User {
         if (this.treatCount>0) {
             return true;
         }
-        return null;
+        return false;
     }
 
     public void decrementTreats () {
