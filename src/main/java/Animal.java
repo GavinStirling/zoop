@@ -14,7 +14,9 @@
  * - GETTING THE ANIMALS INFORMATION
  */
 
-public class Animal {
+// Implementing an interface -> Comparable is an interface in the JDK which makes it easier to sort classes
+
+public class Animal implements Comparable<Animal> {
     // Add fields to an object
     // Access-modifier Type Field-name
     private String name;
@@ -138,5 +140,15 @@ public class Animal {
             setIsTame(true);
             System.out.println(this.name + " has now been tamed!");
         }
+    }
+
+    // Implementation of the compareTo method from the comparable interface class
+    @Override
+    public int compareTo(Animal animal) {
+        // Sorting the animals by happiness
+        // > 0 -> Put the animal ahead
+        // = 0 -> Keeps their place
+        // < 0 -> Puts the animal behind
+        return animal.getHappiness() - happiness;
     }
 }

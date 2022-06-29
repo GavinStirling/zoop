@@ -15,16 +15,33 @@ import java.util.Scanner;
  * - GET STRING INPUT ENTERED BY USER
  */
 
-public class Commands {
+// An abstract class cannot be initialised. It has to be inherited from or extended.
+    // What a class should do
+
+public abstract class Commands {
     // final -> This property will never change
     private final Scanner scanner = new Scanner(System.in);;
     private final String name;
     private final String[] commands;
+    private String nextCommands;
 
 
-    public Commands(String name, String[] commands) {
+    public Commands(String name, String[] commands, String nextCommand) {
         this.name = name;
         this.commands = commands;
+        this.nextCommands = nextCommand;
+    }
+
+    // Abstract method which any sub-classes have to implement.
+        // This indicates every sub-class should have every method.
+    abstract public void run ();
+
+    public String getNextCommands() {
+        return nextCommands;
+    }
+
+    public void setNextCommands(String nextCommand) {
+        this.nextCommands = nextCommand;
     }
 
     public void printMessage(String message) {

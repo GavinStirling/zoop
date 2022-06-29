@@ -12,15 +12,15 @@ public class Main {
     public static void main(String[] args) {
 
 //        Zoo animals = new Zoo(new ArrayList());
+        System.out.println(Zoo.getAnimalByIndex(0));
 
-        List<Animal> zoo = new ArrayList<>();
 
-
-        zoo.add(new Magpie("Mags"));
-        zoo.add(new Magpie("Mags"));
-        zoo.add(new Magpie("Mags"));
-        zoo.add(new Magpie("Mags"));
-        System.out.println(zoo);
+//        List<Animal> zoo = new ArrayList<>();
+//        zoo.add(new Magpie("Mags"));
+//        zoo.add(new Magpie("Mags"));
+//        zoo.add(new Magpie("Mags"));
+//        zoo.add(new Magpie("Mags"));
+//        System.out.println(zoo);
 
 
 //        Animal magpie = new Magpie("Maggy", "m-1");
@@ -38,63 +38,32 @@ public class Main {
 //        lion.petAnimal();
 //        System.out.println(lion.toString());
 
-        // Getting information to create a user
-        Commands currentCommands = new Commands("Create user", new String[]{});
-        currentCommands.printGreeting();
-        currentCommands.printMessage("Enter Username:");
-        String username = currentCommands.getStringInput();
+        UserCommands userCommands = new UserCommands();
+        userCommands.run();
 
-        // Using the retrieved information to create a user
-        User user = new User(username);
-        currentCommands.printMessage(user.getInfo());
+        User user = userCommands.getUser();
+
+        Commands currentCommands = userCommands;
+
 
         // Setting up the application to run using basic commands
-        String nextCommands = "home";
         boolean isActive = true;
 
         while (isActive) {
-            switch(nextCommands) {
+            switch(currentCommands.getNextCommands()) {
                 case "home" :
-                    currentCommands = new Commands("Home", new String[]{"Visit and Animal", "Manage the Animals", "Quit"});
-                    currentCommands.printGreeting();
-                    currentCommands.printCommands();
-                    int userInput = currentCommands.getIntegerInput();
-
-                    if (userInput == 1) {
-                        nextCommands = "visit";
-                    } else if (userInput == 2) {
-                        nextCommands = "manage";
-                    } else if (userInput == 3) {
-                        nextCommands = "";
-                    } else {
-                        nextCommands = "";
-                    }
+                    currentCommands = new HomeCommands();
+                    currentCommands.run();
                     break;
 
                 case "visit" :
-                    currentCommands = new Commands("Visit", new String[]{"Pet animal", "Give treat", "Go back"});
-                    Animal currentAnimal = zoo.get(0);
-
-                    currentCommands.printGreeting();
-                    currentCommands.printMessage(currentAnimal.toString());
-                    currentCommands.printCommands();
-
-                    userInput = currentCommands.getIntegerInput();
-
-                    if (userInput == 1) {
-                        currentAnimal.petAnimal();
-                        user.incrementScore();
-                    } else if (userInput == 2) {
-
-                    } else {
-                        nextCommands = "home";
-                    }
-
+                    currentCommands = new VisitCommands(user);
+                    currentCommands.run();
                     break;
 
                 case "manage" :
-                    currentCommands.printMessage("MANAGE");
-                    nextCommands = "home";
+                    currentCommands = new ManageCommands();
+                    currentCommands.run();
                     break;
 
                 default:

@@ -8,8 +8,8 @@
 public class Lion extends Animal {
     private boolean isSleeping;
 
-    public Lion(String name, String id) {
-        super(name, "lion", id, "Rooaarr");
+    public Lion(String name) {
+        super(name, "lion", "Rooaarr");
         isSleeping = false;
         this.setIsTame(this.getHappiness() >= 70);
     }
