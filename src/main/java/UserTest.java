@@ -57,7 +57,7 @@ class UserTest {
 
     @Test
     public void GetInfo_UserInfo_ReturnsCorrectInfo() {
-        assertEquals(String.format("\nName : %s \nType : %s \nTreat Count : %s", testUser.getName(), testUser.getScore(), testUser.getTreatCount()), testUser.getInfo());
+        assertEquals(String.format("\nName : %s \nType : %s \nTreat Count : %s", testUser.getName(), testUser.getScore(), testUser.getTreatCount()), testUser.toString());
     }
 
     @Test

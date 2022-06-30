@@ -20,7 +20,7 @@ public class UserCommands extends Commands {
 
         // Using the retrieved information to create a user
         user = new User(username);
-        printMessage(user.getInfo());
+        printMessage(user.toString());
 
         // Setting up the application to run using basic commands
         setNextCommands("home");

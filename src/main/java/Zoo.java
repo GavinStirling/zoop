@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * RESPONSIBLE FOR STORING & RETRIEVING ANIMALS
@@ -50,9 +51,21 @@ public class Zoo implements Iterable<Animal> {
         return zoo.get(index);
     }
 
-    public static void getSortedAnimals () {
+    public static List<Animal> getSortedAnimals () {
         // Sorting our animals
-        Collections.sort(zoo);
+        // Take the Zoo class
+        // Convert it to a stream and sort it
+        // Then collect and return it
+
+        // Data -> Stream -> Intermediate Actions -> Terminal action on it
+        // This does not modify the zoo array now
+
+        List<Animal> sortedZoo = zoo.stream()
+                .sorted() // Intermediate Action
+                .collect(Collectors.toList()); // Terminal action -> Closing the stream and getting a result
+
+        return  sortedZoo;
+
     }
 
     @Override

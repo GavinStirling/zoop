@@ -62,7 +62,12 @@ public class Main {
                     break;
 
                 case "manage" :
-                    currentCommands = new ManageCommands();
+                    currentCommands = new ManageCommands(user);
+                    currentCommands.run();
+                    break;
+
+                case "stats" :
+                    currentCommands = new StatsCommands();
                     currentCommands.run();
                     break;
 

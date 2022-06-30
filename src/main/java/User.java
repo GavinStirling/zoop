@@ -13,7 +13,7 @@
  *
  */
 
-public class User {
+public class User implements Searchable {
 
     private String name;
     private int score;
@@ -102,7 +102,8 @@ public class User {
         }
     }
 
-    public String getInfo () {
+    @Override
+    public String toString () {
         return String.format("\nName : %s \nType : %s \nTreat Count : %s", name, score, treatCount);
     }
 
@@ -117,4 +118,10 @@ public class User {
         setTreatCount(treatCount-1);
     }
 
+    @Override
+    public boolean hasMatch(String searchTerm) {
+        // Checks if the name field contains the search term which was pass in.
+        // .contains() returns a boolean value.
+        return name.toLowerCase().contains(searchTerm.toLowerCase());
+    }
 }

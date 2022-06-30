@@ -15,8 +15,9 @@
  */
 
 // Implementing an interface -> Comparable is an interface in the JDK which makes it easier to sort classes
+// Multiple interfaces can be implemented
 
-public class Animal implements Comparable<Animal> {
+public class Animal implements Comparable<Animal>, Searchable {
     // Add fields to an object
     // Access-modifier Type Field-name
     private String name;
@@ -133,6 +134,11 @@ public class Animal implements Comparable<Animal> {
     @Override
     public String toString() {
         return String.format("\nName: %s \nType: %s \nID: %s \nTame: %s \nHappiness: %s", name, type, id, isTame, happiness);
+    }
+
+    @Override
+    public boolean hasMatch(String searchTerm) {
+        return name.toLowerCase().contains(searchTerm.toLowerCase()) || type.toLowerCase().contains(searchTerm.toLowerCase()) || id.toLowerCase().contains(searchTerm.toLowerCase()) || sound.toLowerCase().contains(searchTerm.toLowerCase());
     }
 
     public void isTamed() {
