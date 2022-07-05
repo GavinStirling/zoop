@@ -5,24 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa250d20-d285-476a-8190-d060579594c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Searchable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StatsCommands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HomeCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HomeCommands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ManageCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ManageCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Zoo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Zoo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Animal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ManageCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ManageCommands.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UserCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserCommands.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/UserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Zoo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Zoo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
