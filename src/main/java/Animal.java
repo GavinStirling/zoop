@@ -60,7 +60,7 @@ public class Animal implements Comparable<Animal>, Searchable {
     // Creating an overloaded constructor method which doesn't require an id string
     public Animal (String name, String type, String sound) {
         // this() calls the original constructor method
-        this(name, type,"-" + animalCount, sound);
+        this(name, type,"-" + (animalCount + 1), sound);
     }
 
     // Getter -> Method

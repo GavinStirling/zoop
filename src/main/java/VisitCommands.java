@@ -8,8 +8,12 @@ public class VisitCommands extends Commands {
 
     @Override
     public void run() {
+        printMessage("All Animal Info: \n");
+        Zoo.getZoo().forEach(animal -> printMessage(animal.toString()));
 
-        Animal currentAnimal = Zoo.getAnimalByIndex(0);
+        printMessage("Select which animal to visit by entering their ID number below:");
+        int userAnimalSelection =  getIntegerInput(Zoo.getZooSize())-1;
+        Animal currentAnimal = Zoo.getAnimalByIndex(userAnimalSelection);
 
         printGreeting();
         printMessage(currentAnimal.toString());
@@ -17,12 +21,20 @@ public class VisitCommands extends Commands {
 
         int userInput = getIntegerInput();
 
-        if (userInput == 1){
-            currentAnimal.petAnimal();
-            System.out.println(user);
-            user.incrementScore();
-        } else {
-            setNextCommands("home");
+        switch (userInput) {
+            case 1:
+                currentAnimal.petAnimal();
+                System.out.println(user);
+                user.incrementScore();
+                break;
+            case 2:
+                if (user.hasTreatsLeft()) {
+                    currentAnimal.receiveTreat();
+                    user.giveTreat();
+                }
+                break;
+            case 3:
+                setNextCommands("home");
         }
     }
 }

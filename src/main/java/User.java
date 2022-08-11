@@ -67,28 +67,6 @@ public class User implements Searchable {
         }
     }
 
-    /**
-     * USER METHODS CHALLENGE
-     * ADD THE FOLLOWING METHODS
-     *
-     * - hasTreatsLeft()
-     *  - CHECKS IF A USER HAS TREATS LEFT
-     *  - RETURNS A BOOLEAN
-     *
-     * - decrementTreats()
-     *  - IF A USER HAS TREATS LEFT DECREMENT THE TREAT COUNT
-     *
-     * - getInformation()
-     *  - RETURNS A STRING IN THE FOLLOWING FORMAT
-     *  - "\nName : NAME \nScore : SCORE \nTreat Count : TREAT COUNT\n"
-     *  - THE CAPITAL LETTERS SHOULD BE REPLACED BY THE FIELDS IN THE CLASS
-     *
-     * - incrementScore()
-     *  - INCREMENTS THE CURRENT SCORE BY 10
-     *  - 1 IN 4 CHANCE TO GET A ANIMAL TOKEN
-     *  - DOES NOT RETURN ANYTHING
-     */
-
     public Boolean hasTreatsLeft () {
         if (this.treatCount>0) {
             return true;
@@ -104,7 +82,7 @@ public class User implements Searchable {
 
     @Override
     public String toString () {
-        return String.format("\nName : %s \nType : %s \nTreat Count : %s", name, score, treatCount);
+        return String.format("\nName : %s \nScore : %s \nTreat Count : %s", name, score, treatCount);
     }
 
     public void incrementScore () {
@@ -116,6 +94,7 @@ public class User implements Searchable {
 
     public void giveTreat () {
         setTreatCount(treatCount-1);
+        incrementScore();
     }
 
     @Override

@@ -51,6 +51,10 @@ public class Zoo implements Iterable<Animal> {
         return zoo.get(index);
     }
 
+    public static int getZooSize () {
+        return zoo.size();
+    }
+
     public static List<Animal> getSortedAnimals () {
         // Sorting our animals
         // Take the Zoo class
@@ -65,7 +69,6 @@ public class Zoo implements Iterable<Animal> {
                 .collect(Collectors.toList()); // Terminal action -> Closing the stream and getting a result
 
         return  sortedZoo;
-
     }
 
     @Override
