@@ -71,6 +71,10 @@ public class Animal implements Comparable<Animal>, Searchable {
         return id;
     }
 
+    public String getType() {
+        return type;
+    }
+
     public boolean getIsTame() {
         return isTame;
     }
